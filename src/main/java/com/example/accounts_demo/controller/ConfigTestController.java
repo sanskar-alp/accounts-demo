@@ -33,14 +33,22 @@ public class ConfigTestController {
     @Value("${externalApiKey:DEFAULT_ERROR}")
     private String externalApiKey;
 
-    @Value("${path:DEFAULT_ERROR}")
-    private String path;
+    @Value("${endPoint:DEFAULT_ERROR}")
+    private String endPoint;
 
     @GetMapping("/config-test")
     public String testConfig() {
         return String.format(
-                "App: %s\nDB URL: %s\nPG Host: %s\nMongo DB Host: %s\nMongo DB port: %s\nMongo DB authDb: %s\nMongo DB uri: %s\nExternal API Key: %s\nAPI Endpoint: %s",
-                appName, pgdatasourceUrl, pgHost, mongoDbHost, mongoDbPort, mongoDbAuthDb,mongoDbUri,externalApiKey,path
+                "App: %s" +
+                        "\nDB URL: %s" +
+                        "\nPG Host: %s" +
+                        "\nMongo DB Host: %s" +
+                        "\nMongo DB port: %s" +
+                        "\nMongo DB authDb: %s" +
+                        "\nMongo DB uri: %s" +
+                        "\nExternal API Key: %s" +
+                        "\nAPI Endpoint: %s",
+                appName, pgdatasourceUrl, pgHost, mongoDbHost, mongoDbPort, mongoDbAuthDb,mongoDbUri,externalApiKey, endPoint
         );
     }
 }

@@ -15,10 +15,10 @@ import java.util.List;
 @RefreshScope
 public class AccountController {
 
-    @Value("${app.name}")
+    @Value("${app.name:DEFAULT-ERROR}")
     private String applicationName;
 
-    @Value("${app.environment}")
+    @Value("${app.environment:DEFAULT-ERROR}")
     private String environment;
 
     private final SharedConfig sharedConfig;

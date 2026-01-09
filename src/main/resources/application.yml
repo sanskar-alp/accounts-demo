@@ -5,10 +5,30 @@ spring:
     name: accounts
   profiles:
     active: dev
+  cloud:
+    bootstrap:
+      enabled: true
+    vault:
+      uri: http://localhost:8500
+      authentication: token
+      token: hvs.3vkjpHHXcgdliYpHBgGkdsxo
+      kv:
+        enabled: true
+        backend: secret
+        profile-separator: "-"
+        application-name: accounts
   config:
-    import: "optional:configserver:http://localhost:8080"
+    import:
+    - "optional:configserver:http://localhost:8080"
+    - "vault://"
+
 management:
   endpoints:
     web:
       exposure:
-        include: refresh
+        include: refresh,env,health,info
+
+logging:
+  level:
+    org.springframework.vault: DEBUG
+    org.springframework.cloud.vault: DEBUG
