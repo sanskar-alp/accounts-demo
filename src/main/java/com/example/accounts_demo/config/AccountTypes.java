@@ -11,6 +11,7 @@ import java.util.List;
 @Setter
 @Configuration
 @ConfigurationProperties(prefix = "account")
+@RefreshScope
 public class AccountTypes {
     private List<String> types;
 

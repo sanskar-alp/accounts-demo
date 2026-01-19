@@ -11,7 +11,7 @@ spring:
     vault:
       uri: http://localhost:8500
       authentication: token
-      token: ${VAULT_TOKEN}
+      token: AccountsService
       kv:
         enabled: true
         backend: secret
@@ -19,8 +19,9 @@ spring:
         application-name: accounts
   config:
     import:
-    - "optional:configserver:http://localhost:8080"
     - "vault://"
+    - "optional:configserver:http://localhost:8080"
+
 
 management:
   endpoints:

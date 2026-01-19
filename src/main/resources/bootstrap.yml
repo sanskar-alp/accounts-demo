@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: accounts
+  profiles:
+    active: dev
+
+  config:
+    import:
+      - "vault://"
+      - "optional:configserver:http://localhost:8080"
+
+
+  cloud:
+    cloud:
+      config:
+        allowOverride: true
+        overrideNone: false
+        overrideSystemProperties: false
+    vault:
+      uri: http://localhost:8500

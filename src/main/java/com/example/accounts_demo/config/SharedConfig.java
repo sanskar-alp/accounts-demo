@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Configuration
 @ConfigurationProperties(prefix = "shared.config")
+@RefreshScope
 public class SharedConfig {
     private Integer rebateRate;
     private Integer minimumAge;
